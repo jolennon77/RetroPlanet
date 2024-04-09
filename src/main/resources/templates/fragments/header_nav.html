@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<div th:fragment="header_nav" style="width: 400px;">
+    <div class="window">
+      <div class="title-bar">
+        <div class="title-bar-text">M E N U</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body" style="display: flex; ">
+        <fieldset style="margin-bottom: 0; margin-right: 9px">
+          <div class="headprofile_Img"></div>
+        </fieldset>
+
+
+        <div style="display: flex; flex-direction : column; flex-grow: 1; ">
+          <section class="tabs" style=" margin-bottom: auto;">
+            <menu role="tablist" aria-label="Sample Tabs">
+              <button role="tab" aria-controls="tab-A" aria-selected="true">🚀</button>
+              <button role="tab" aria-controls="tab-B">🏠</button>
+              <button role="tab" aria-controls="tab-C">📸</button>
+              <button role="tab" aria-controls="tab-D">📔</button>
+              <button role="tab" aria-controls="tab-E">💞</button>
+              <button role="tab" aria-controls="tab-F">⚙️</button>
+            </menu>
+            <!-- the tab content -->
+            <article role="tabpanel" id="tab-A"> Feed</article>
+            <article role="tabpanel" hidden id="tab-B"> Home</article>
+            <article role="tabpanel" hidden id="tab-C"> Photo</article>
+            <article role="tabpanel" hidden id="tab-D"> Diary</article>
+            <article role="tabpanel" hidden id="tab-E"> D M</article>
+            <article role="tabpanel" hidden id="tab-F"> Setting</article>
+          </section>
+          <div class="mood_follow_section" style="display:flex;">
+            <fieldset class="mood_section" style="margin-top: auto; margin-bottom: 0">
+              <legend>Today's mood</legend>
+              😡😡😡😡😡😡
+            </fieldset>
+            <fieldset class="follow_section"
+                      style="margin-top: auto; margin-left:auto; margin-bottom: 0; width: 46.797px;">
+              <legend>follower</legend>
+              10
+            </fieldset>
+            <fieldset class="follow_section" style="margin-top: auto; margin-bottom: 0">
+              <legend>following</legend>
+              10
+            </fieldset>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

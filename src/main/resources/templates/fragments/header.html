@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<div th:fragment="header">
+  <div class="logo_wrap" style="max-width: 580px; display: flex; justify-content: flex-start;">
+    <a th:href="@{/}">
+      <div class="logo_header">
+      </div>
+    </a>
+    <div style="margin-left: auto;">
+      <button id="styleButton1" style="display: flex;">
+        <img src="/img/icoxp.png " style="height: 20px;" alt="">
+        <div style="  line-height : 20px;">&nbsp;Style</div>
+      </button>
+    </div>
+    <div>
+      <button id="styleButton2" style="display: flex;">
+        <img src="/img/ico98.png " style="height: 20px;" alt="">
+        <div style="  line-height : 20px;">&nbsp;Style</div>
+      </button>
+    </div>
+    <div>
+      <button>logout</button>
+    </div>
+  </div>
+</div>
+</html>

@@ -1,0 +1,122 @@
+body {
+    background: linear-gradient(90deg, #8fcdff, #fd96db);
+
+}
+.main_wrap{
+    margin-top: 50px; /* 기본적으로 상단 여백을 없앰 */
+    /*margin: 0 auto;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 860px 이상 */
+@media (min-width: 860px) {
+    /* 좌측에는 사진, 우측에는 로그인 공간 */
+    /* 가로로 정렬되는 Flexbox 설정 */
+
+    .center {
+        display: flex;
+        position: relative; /* 요소를 상대적으로 위치시킴 */
+        right: 3px; /* 현재 위치에서 오른쪽으로 3px 이동 */
+    }
+
+    .header>.window{
+        width: 580.97px;
+    }
+    .logo_wrap{
+        width: 788px;
+    }
+    .info_wrap{
+        width: 800px;
+    }
+}
+
+/* 435px 이상 */
+@media (max-width: 435px) {
+    body {
+        margin-top: 0; /* 상단 여백을 없앰 */
+    }
+}
+
+/* 860px 이하 */
+@media (max-width: 860px) {
+    /* 사진이 들어가는 공간이 사라짐 */
+    .main_wrap {
+        margin-top: 0; /* 기본적으로 상단 여백을 없앰 */
+    }
+    #hidden {
+        display: none;
+    }
+    /* 860px의 최대 넓이가 400px로 변경됨 */
+    #860px {
+        max-width: 400px;
+    }
+
+    .header>.window{
+        width: 400px;
+    }
+    .info_wrap{
+        width: 400px;
+        position: relative; /* 요소를 상대적으로 위치시킴 */
+        left: 3px; /* 현재 위치에서 오른쪽으로 3px 이동 */
+    }
+    .logo_wrap{
+        width: 394px;
+    }
+
+}
+
+.info_wrap{
+    margin-top: 20px;
+
+}
+
+.center .window{
+    height: 494px;
+
+}
+
+.window img{
+    height: 100%;
+}
+
+.window-body{
+    height: 92.5%;
+}
+/*.title-bar{*/
+/*    background: linear-gradient(90deg, #fd96db, #8fcdff);*/
+
+/*}*/
+
+.copyright{
+    height: 64px;
+}
+.tabpanel{
+    display: flex;
+}
+
+.tabpanel_Img{
+    width: 90px;
+    height: 90px;
+    background-image: url(../img/needgirl4.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 2rem;
+}
+
+.logo_header{
+    width: 90px;
+    height: 30px;
+    background-image: url(../img/RPlogo2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 2rem;
+    margin-bottom: 0.5rem;
+}
+.tab_content{
+    height: 398px;
+}

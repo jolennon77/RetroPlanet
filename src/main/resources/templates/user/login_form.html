@@ -1,0 +1,19 @@
+<form th:action="@{user/login}" method="post">
+<fieldset>
+  <legend>Sign In</legend>
+  <div class="field-row-stacked" style="width: 200px">
+    <label for="username">USER ID</label>
+    <input name="username" id="username" type="text" />
+  </div>
+  <div class="field-row-stacked" style="width: 200px">
+    <label for="password">PASSWORD</label>
+    <input name="password" id="password" type="password" />
+  </div>
+</fieldset>
+<section class="field-row">
+  <button type="submit">Sign In</button>
+  <div th:if="${param.error}">
+    <span>사용자 아이디 또는 비밀번호 확인해주세요</span>
+  </div>
+</section>
+</form>

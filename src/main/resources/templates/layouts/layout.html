@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--css,JS 추가영역-->
+  <link id="styleLink" rel="stylesheet" href="https://unpkg.com/xp.css">
+  <link th:href="@{/css/basic2.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<!--본문 영역 start-->
+<div class="main_wrap">
+  <!--헤더영역 start -->
+
+  <div th:replace="~{fragments/header::header}"></div>
+
+  <!--헤더영역 end -->
+
+  <!--헤더 네비 start-->
+  <div class="header" id="hidden2">
+  <div th:replace="~{fragments/header_nav::header_nav}"></div>
+  </div>
+  <!--헤더 네비 end-->
+
+
+  <!--Center 영역 start-->
+  <div class="center" style="max-width:800px">
+    <!--Left 영역 start-->
+    <div id="hidden" style="max-width: 400px; height: 500px; ">
+    <div th:replace="~{fragments/left_nav::left_nav}"></div>
+    </div>
+      <!--Left 영역 end-->
+
+    <!--Right(content) 영역 start-->
+    <div style="max-width: 400px; ">
+    <th:block layout:fragment="content">
+      <div style="background-color: rgba(255,121,224,0.23); height: 150px;">
+        content 영역
+      </div>
+    </th:block>
+    </div>
+    <!--Right(content) 영역 end-->
+  </div>
+
+
+  <!--Center 영역 end-->
+  <!--footer 영역 start-->
+
+  <!--footer 영역 end-->
+</div>
+
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+<script type="text/javascript" th:src="@{/js/styleLoader2.js}"></script>
+
+<script>
+  function redirectToPersonalHome() {
+    window.location.href = '/personalhome';
+  }
+</script>
+<script src="/js/styleLoader2.js"></script>
+</head>
+</html>

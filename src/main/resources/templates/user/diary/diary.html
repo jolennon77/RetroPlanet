@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인 페이지</title>
+  <!-- 외부 스타일 시트 연결 연ㅡㅅㅂ-->
+  <!--  <link-->
+  <!--      rel="stylesheet"-->
+  <!--      href="https://unpkg.com/xp.css/dist/98.css"-->
+  <!--  >-->
+  <link id="styleLink" rel="stylesheet" href="https://unpkg.com/xp.css">
+  <link th:href="@{/css/basic2.css}" rel="stylesheet"/>
+  <link th:href="@{/css/photogird.css}" rel="stylesheet"/>
+</head>
+<body>
+
+
+<div class="main_wrap">
+  <div class="logo_wrap" style="max-width: 580px; display: flex; justify-content: flex-start;">
+    <a th:href="@{/static}">
+      <div class="logo_header">
+      </div>
+    </a>
+    <div style="margin-left: auto;">
+      <button id="styleButton1" style="display: flex;">
+        <img src="/img/icoxp.png " style="height: 20px;" alt="">
+        <div style="  line-height : 20px;">&nbsp;Style</div>
+      </button>
+    </div>
+    <div>
+      <button id="styleButton2" style="display: flex;">
+        <img src="/img/ico98.png " style="height: 20px;" alt="">
+        <div style="  line-height : 20px;">&nbsp;Style</div>
+      </button>
+    </div>
+    <div>
+      <button>logout</button>
+    </div>
+  </div>
+
+
+  <div class="header" id="hidden2">
+    <div class="window">
+      <div class="title-bar">
+        <div class="title-bar-text">M E N U</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body" style="display: flex; ">
+        <fieldset style="margin-bottom: 0; margin-right: 9px">
+          <div class="headprofile_Img"></div>
+        </fieldset>
+
+
+        <div style="display: flex; flex-direction : column; flex-grow: 1; ">
+          <section class="tabs" style=" margin-bottom: auto;">
+            <menu role="tablist" aria-label="Sample Tabs">
+              <button role="tab" aria-controls="tab-A" aria-selected="true">🚀</button>
+              <button role="tab" aria-controls="tab-B">🏠</button>
+              <button role="tab" aria-controls="tab-C">📸</button>
+              <button role="tab" aria-controls="tab-D">📔</button>
+              <button role="tab" aria-controls="tab-E">💞</button>
+              <button role="tab" aria-controls="tab-F">⚙️</button>
+            </menu>
+            <!-- the tab content -->
+            <article role="tabpanel" id="tab-A"> Feed</article>
+            <article role="tabpanel" hidden id="tab-B"> Home</article>
+            <article role="tabpanel" hidden id="tab-C"> Photo</article>
+            <article role="tabpanel" hidden id="tab-D"> Diary</article>
+            <article role="tabpanel" hidden id="tab-E"> D M</article>
+            <article role="tabpanel" hidden id="tab-F"> Setting</article>
+          </section>
+          <div class="mood_follow_section" style="display:flex;">
+            <fieldset class="mood_section" style="margin-top: auto; margin-bottom: 0">
+              <legend>Today's mood</legend>
+              😡😡😡😡😡😡
+            </fieldset>
+            <fieldset class="follow_section"
+                      style="margin-top: auto; margin-left:auto; margin-bottom: 0; width: 46.797px;">
+              <legend>follower</legend>
+              10
+            </fieldset>
+            <fieldset class="follow_section" style="margin-top: auto; margin-bottom: 0">
+              <legend>following</legend>
+              10
+            </fieldset>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <div class="center" style="max-width:800px">
+    <aside id="left_aside" th:include="${left} ? ${left} : left"></aside>
+
+
+    <div style="max-width: 400px; ">
+      <!--            작성란-->
+      <!--            /로그인공간-->
+
+      <div class="window" style="width: 400px">
+        <div class="title-bar">
+          <div class="title-bar-text">H O M E</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="content_body">
+          <div class="window-body">
+            <menu role="tablist">
+              <button aria-controls="album" aria-selected="true">Diary</button>
+              <button aria-controls="photoupload">Upload</button>
+            </menu>
+            <article class="tab_content" role="tabpanel" id="album">
+              <fieldset class="content_fieldset">
+                <legend>diray</legend>
+                <div class="grid-container">
+                  <div class="photogrid" style=" display:flex; flex-direction:column; background-image: url(/img/needgirl5.jpg);">
+                    <span style="margin-top: auto; background-color: aliceblue; font-size: large;">불편해?? 불편하면</span>
+                  </div>
+                  <div class="photogrid" style=" display:flex; flex-direction:column; background-image: url(/img/needgirl6.jpg);">
+                    <span style="margin-top: auto; background-color: aliceblue; font-size: large;">자세를 고쳐앉아</span>
+                  </div>
+                  <div class="photogrid" style="background-image: url(/img/needgirl7.jpg);"></div>
+                  <div class="photogrid" style="background-image: url(/img/needgirl8.jpg);"></div>
+                  <div class="photogrid" style="background-image: url(/img/needgirl9.jpg);"></div>
+                  <div class="photogrid" style="background-image: url(/img/needgirl10.jpg);"></div>
+                  <div class="photogrid" style="background-image: url(/img/needgirl11.jpg);"></div>
+                  <div class="photogrid" style="background-image: url(/img/needgirl12.jpg);"></div>
+                  <div class="photogrid" style="background-image: url(/img/needgirl13.jpg);"></div>
+                  <div class="photogrid">10</div>
+                  <div class="photogrid">11</div>
+                  <div class="photogrid">12</div>
+                  <div class="photogrid">13</div>
+                  <div class="photogrid">14</div>
+                  <div class="photogrid">15</div>
+                  <div class="photogrid">16</div>
+                  <div class="photogrid">17</div>
+                  <div class="photogrid">18</div>
+                  <div class="photogrid">19</div>
+                  <div class="photogrid">20</div>
+                </div>
+              </fieldset>
+            </article>
+            <article class="tab_content" role="tabpanel" hidden id="photoupload">
+              <fieldset class="content_fieldset">
+                <legend>사진업로드</legend>
+                <fieldset>
+                  <legend>미리보기</legend>
+                  <div id="summernote"></div>
+                </fieldset>
+                <div>
+                  <input type="file" class="real-upload" accept="image/*" required
+                         onchange="previewImage(event)">
+                </div>
+                <div style="margin-left: 255px; margin-top: 40px;">
+                  <button onclick="uploadImage()">업로드</button>
+                </div>
+              </fieldset>
+            </article>
+
+            <section class="field-row" style="justify-content: flex-end">
+            </section>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+</div>
+<script src="/js/script.js"></script>
+<script src="/js/styleLoader2.js"></script>
+</body>
+</html>

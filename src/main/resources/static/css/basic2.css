@@ -1,0 +1,212 @@
+body {
+    background: linear-gradient(90deg, #8fcdff, #fd96db);
+
+
+}
+.main_wrap{
+    margin-top: 50px; /* 기본적으로 상단 여백을 없앰 */
+    /*margin: 0 auto;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 860px 이상 */
+@media (min-width: 860px) {
+    /* 좌측에는 사진, 우측에는 로그인 공간 */
+    /* 가로로 정렬되는 Flexbox 설정 */
+
+    .center {
+        display: flex;
+        position: relative; /* 요소를 상대적으로 위치시킴 */
+        right: 3px; /* 현재 위치에서 오른쪽으로 3px 이동 */
+    }
+
+    .header>.window{
+        width: 580.97px;
+    }
+    .logo_wrap{
+        width: 580.97px;
+    }
+    .info_wrap{
+        width: 800px;
+    }
+    #hidden2{
+        display: none;
+    }
+}
+
+/* 435px 이상 */
+@media (max-width: 435px) {
+    body {
+        margin-top: 0; /* 상단 여백을 없앰 */
+    }
+}
+
+/* 860px 이하 */
+@media (max-width: 860px) {
+    /* 사진이 들어가는 공간이 사라짐 */
+    .main_wrap {
+        margin-top: 0; /* 기본적으로 상단 여백을 없앰 */
+    }
+    #hidden {
+        display: none;
+    }
+    /* 860px의 최대 넓이가 400px로 변경됨 */
+    #860px {
+        max-width: 400px;
+    }
+    .logo_wrap{
+        width: 394px;
+    }
+
+    .header>.window{
+        width: 400px;
+    }
+    .info_wrap{
+        width: 300px
+    }
+    .center {
+        display: flex;
+        position: relative; /* 요소를 상대적으로 위치시킴 */
+        right: 2px; /* 현재 위치에서 오른쪽으로 3px 이동 */
+    }
+
+}
+
+.center .window{
+    height: 494px;
+
+}
+
+.window img{
+    height: 100%;
+}
+
+.window-body{
+    height: 92.5%;
+}
+/*.title-bar{*/
+/*    background: linear-gradient(90deg, #fd96db, #8fcdff);*/
+
+/*}*/
+
+.copyright{
+    height: 64px;
+}
+.tabpanel{
+    display: flex;
+}
+
+.tabpanel_Img{
+    width: 90px;
+    height: 90px;
+    background-image: url(../img/1111.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 2rem;
+}
+
+.logo_header{
+    width: 90px;
+    height: 30px;
+    background-image: url(../img/RPlogo2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.leftprofile_Img{
+    width: 134.97px;
+    height: 134.97px;
+    background-image: url(../img/needgirl4.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.tree-view{
+    height: 51%;
+}
+
+.mood_section{
+    padding-bottom: 4px;
+    padding-top: 0;
+    flex-grow: 1;
+}
+
+.headprofile_Img{
+    background-image: url(../img/needgirl4.jpeg);
+    width: 90px;
+    height: 90px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.follow_section{
+    width: 10px;
+    height: 27.997px;
+    padding-bottom: 4px;
+    padding-top: 1.82px;
+    text-align: center;
+}
+/*.header>.window{*/
+/*    height: 120px;*/
+
+/*}*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    background: linear-gradient(90deg, #8fcdff, #8fcdff, #f2a9da);
+    padding: 10px;
+}
+
+.grid-container > .photogrid {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    width: 142.5px;
+    height: 142.5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+
+
+
+
+
+.content_fieldset {
+    height: 370px; /* 필요한 높이로 조정하세요 */
+    overflow-y: auto; /* 세로 스크롤을 허용합니다. */
+}
+
+.photopreview{
+    width: 180px;
+    height: 222px;
+}
+.photopreview img {
+    max-width: 180px;
+    max-height: 200px;
+    margin: 10px;
+}
+
+.home_profile{
+    width: 160px;
+    height: 160px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.tab_content{
+    height: 398px;
+}

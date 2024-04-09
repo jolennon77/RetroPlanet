@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 페이지</title>
+    <link id="styleLink" rel="stylesheet" href="https://unpkg.com/xp.css">
+    <link th:href="@{/css/basic2.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<!--본문 영역 start-->
+<div class="main_wrap">
+    <!--헤더영역 start -->
+    <div class="logo_wrap" style="max-width: 580px; display: flex; justify-content: flex-start;">
+        <a th:href="@{/}">
+            <div class="logo_header">
+            </div>
+        </a>
+        <div style="margin-left: auto;">
+            <button id="styleButton1" style="display: flex;">
+                <img src="/img/icoxp.png " style="height: 20px;" alt="">
+                <div style="  line-height : 20px;">&nbsp;Style</div>
+            </button>
+        </div>
+        <div>
+            <button id="styleButton2" style="display: flex;">
+                <img src="/img/ico98.png " style="height: 20px;" alt="">
+                <div style="  line-height : 20px;">&nbsp;Style</div>
+            </button>
+        </div>
+        <div>
+            <button>logout</button></div>
+    </div>
+    <!--헤더영역 end -->
+
+    <!--헤더 네비 start-->
+    <div class="header" id="hidden2">
+    </div>
+    <!--헤더 네비 end-->
+    <!--Center 영역 start-->
+    <div class="center" style="max-width:800px">
+        <!--Left 영역 start-->
+        <!--Left 영역 start-->
+        <div id="hidden" style="max-width: 400px; height: 500px; ">
+            <!--사진공간-->
+            <div class="window">
+                <div class="title-bar">
+                    <div class="title-bar-text">Welcome to Retro Planet</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <div>
+                        <img src="/img/RPlogo.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Left 영역 end-->
+
+
+        <!--Right 영역 start-->
+        <div style="max-width: 394px; height: 500px;">
+            <!--            작성란-->
+            <!--            /로그인공간-->
+            <div class="window" style="width: 394px;">
+                <div class="title-bar">
+                    <div class="title-bar-text">login</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <menu role="tablist">
+                        <button aria-controls="signin" id="loginButton" aria-selected="true">Sign In</button>
+                        <button aria-controls="signup" id="signupButton">Sign Up</button>
+                        <button aria-controls="about">About</button>
+                    </menu>
+                    <article class="tab_content" role="tabpanel" id="signin">
+                        <fieldset>
+                            <div style="display: flex; justify-content: center;">
+                                <img src="/img/RPlogo2.png">
+                            </div>
+                        </fieldset>
+
+                        <div id="loginFormContainer">
+                            <!-- 이곳에 Ajax로 받아온 로그인 폼이 삽입됩니다. -->
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="tab_content"  role="tabpanel" hidden id="signup">
+                        <fieldset>
+                            <div style="display: flex; justify-content: center;">
+                                <img src="/img/RPlogo2.png">
+                            </div>
+                        </fieldset>
+                        <div hidden id="signupFormContainer">
+                            <!-- 이곳에 Ajax로 받아온 회원가입 폼이 삽입됩니다. -->
+                        </div>
+                    </article>
+                    <article class="tab_content" role="tabpanel" hidden id="about">
+                        <p>
+                            You create the content for each tab by using an <code>article</code> tag.
+                        </p>
+                        <iframe width="100%" height="200"
+                                src="https://www.youtube.com/embed/v0gaClScVCA?si=u9D8V5TWE_jXoKSj"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <!--Right 영역 end-->
+    </div>
+    <!--Center 영역 end-->
+    <!--footer 영역 start-->
+    <div class="info_wrap">
+        <div style="max-width:800px">
+            <div class="window">
+                <div class="title-bar">
+                    <div class="title-bar-text">Command Prompt</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+    <pre class="copyright">Microsoft&#10094;R&#10095; Retro Planet
+&#10094;C&#10095; Copyright HYUNJIN CHO
+      <br>C:&#92;WINDOWS&#92;SYSTEM32> Thanks you
+    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--footer 영역 end-->
+</div>
+
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"-->
+<!--        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"-->
+<!--        crossorigin="anonymous"></script>-->
+<script src="/js/script.js"></script>
+<script src="/js/styleLoader.js"></script>
+<script>
+    function redirectToPersonalHome() {
+        window.location.href = '/personalhome';
+    }
+</script>
+<script src="/js/styleLoader2.js"></script>
+<script>
+    function loadSignUpForm() {
+        // XMLHttpRequest 객체 생성
+        var xhttp = new XMLHttpRequest();
+
+        // readyState 변경 이벤트 리스너 설정
+        xhttp.onreadystatechange = function() {
+            // 서버로부터의 응답이 완료되고, HTTP 상태 코드가 성공(200)인 경우 실행
+            if (this.readyState == 4 && this.status == 200) {
+                // 서버로부터 받은 응답을 signupFormContainer 요소 안에 삽입
+                document.getElementById("signupFormContainer").innerHTML = this.responseText;
+                // signupFormContainer 요소의 hidden 속성 제거하여 보이도록 설정
+                document.getElementById("signupFormContainer").removeAttribute("hidden");
+            }
+        };
+
+        // AJAX 요청 설정
+        // GET 메서드를 사용하여 user/signup 경로로 요청을 보냄
+        // 이 경로는 회원가입 폼이 포함된 페이지를 서버로부터 받을 것을 의미함
+        xhttp.open("GET", "user/signup", true);
+
+        // 요청 전송
+        xhttp.send();
+    }
+
+    // signupButton 클릭 이벤트 리스너 설정
+    // signupButton 버튼을 클릭하면 loadSignUpForm 함수가 호출됨
+    document.getElementById("signupButton").addEventListener("click", loadSignUpForm);
+</script>
+<script>
+    // 페이지 로드 시 실행되는 함수
+    window.onload = function() {
+        // 로그인 폼을 자동으로 불러오는 함수 호출
+        loadLoginForm();
+    }
+
+    // 로그인 폼을 불러오는 함수
+    function loadLoginForm() {
+        // XMLHttpRequest 객체 생성
+        var xhttp = new XMLHttpRequest();
+
+        // readyState 변경 이벤트 리스너 설정
+        xhttp.onreadystatechange = function() {
+            // 서버로부터의 응답이 완료되고, HTTP 상태 코드가 성공(200)인 경우 실행
+            if (this.readyState == 4 && this.status == 200) {
+                // 서버로부터 받은 응답을 loginFormContainer 요소 안에 삽입
+                document.getElementById("loginFormContainer").innerHTML = this.responseText;
+                // loginFormContainer 요소의 hidden 속성 제거하여 보이도록 설정
+                // document.getElementById("loginFormContainer").removeAttribute("hidden");
+            }
+        };
+
+        // AJAX 요청 설정
+        // GET 메서드를 사용하여 user/login 경로로 요청을 보냄
+        // 이 경로는 로그인 폼이 포함된 페이지를 서버로부터 받을 것을 의미함
+        xhttp.open("GET", "user/login", true);
+
+        // 요청 전송
+        xhttp.send();
+    }
+</script>
+</body>
+</html>

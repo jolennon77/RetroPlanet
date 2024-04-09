@@ -1,0 +1,61 @@
+<div id="hidden" style="max-width: 400px; height: 500px; ">
+  <!--사진공간-->
+  <div class="window">
+    <div class="title-bar">
+      <div class="title-bar-text">M E N U</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <fieldset>
+        <div class="leftprofile_Img"></div>
+      </fieldset>
+      <fieldset class="mood_section">
+        <legend>Today's mood</legend>
+        😡😡😡😡😡😡
+      </fieldset>
+
+      <!--<ul class="tree-view" style="display: flex; flex-direction: column;">-->
+      <ul class="tree-view">
+        <li>🌐Welcome to My Mini Planet</li>
+        <ul>
+          <li>Made by HJ</li>
+        </ul>
+        <li>
+          <a th:href="@{/personalhome}">🚀 Feed</a>
+        </li>
+
+        <li>
+          <a th:href="@{/personalhome}">👥 Friend</a>
+        </li>
+        <ul>
+          <li style="display:flex;">
+            <span style="width: 48px">Follower</span>
+            :&nbsp;
+            <a th:href="@{/personalhome}">10</a>
+          </li>
+          <li style="display:flex;">
+            <span style="width: 48px">Following</span>
+            :&nbsp;
+            <a th:href="@{/personalhome}">10</a>
+          </li>
+        </ul>
+
+
+        <li>
+          <a th:href="@{/personalhome}">🏠 Home</a>
+          <ul>
+            <li><a th:href="@{/photoAlbum}">📸 Photo</a></li>
+            <li><a th:href="@{/diary}">📔 Diary</a></li>
+            <li><a th:href="@{/personalhome}">💞 D M</a></li>
+            <li><a th:href="@{/personalhome}">⚙️ Setting</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>
