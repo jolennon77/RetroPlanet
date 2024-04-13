@@ -26,7 +26,11 @@ public class SecurityConfig {
     http
         .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
             .requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
-        .csrf((csrf) -> csrf.ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**")))
+        .csrf((csrf) -> csrf
+            .ignoringRequestMatchers(
+                new AntPathRequestMatcher("/upload/**"), // 파일 업로드 요청에 대한 CSRF 보호 제외
+                new AntPathRequestMatcher("/h2-console/**") // H2 콘솔 요청에 대한 CSRF 보호 제외
+            ))
         .headers((headers) -> headers.addHeaderWriter(
             new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))
         .formLogin((formLogin) -> formLogin.loginPage("/login").successHandler(authenticationSuccessHandler))

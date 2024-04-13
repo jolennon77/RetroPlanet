@@ -12,7 +12,9 @@
       </div>
       <div class="window-body" style="display: flex; ">
         <fieldset style="margin-bottom: 0; margin-right: 9px">
-          <div class="headprofile_Img"></div>
+          <div class="headprofile_Img">
+            <img th:src="${userprofile.getProfileImgPath()}" alt="Profile Image">
+          </div>
         </fieldset>
 
 
