@@ -68,5 +68,23 @@
   }
 </script>
 <script src="/js/styleLoader2.js"></script>
-</head>
+<script th:inline="javascript">
+  var username = [[${username}]]
+  var link = "/user/" + username;
+
+  document.getElementById("profile_setting").addEventListener("click", function() {
+    window.location.href = link + "/profilesetting";
+  });
+
+  document.getElementById("mainpage_setting").addEventListener("click", function() {
+    window.location.href = link + "/mainpagesetting";
+  });
+
+
+  document.getElementById("account_setting").addEventListener("click", function() {
+    window.location.href = link + "/accountsetting";
+  });
+
+</script>
 </html>
+

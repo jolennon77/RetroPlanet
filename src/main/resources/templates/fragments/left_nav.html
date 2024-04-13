@@ -20,6 +20,7 @@
         <fieldset class="mood_section">
           <legend>Today's mood</legend>
           😡😡😡😡😡😡
+<!--          <p th:text="${userProfile.moodToday}"></p>-->
         </fieldset>
 
         <ul class="tree-view">
@@ -54,7 +55,7 @@
               <li><a th:href="@{/photoAlbum}">📸 Photo</a></li>
               <li><a th:href="@{/diary}">📔 Diary</a></li>
               <li><a th:href="@{/personalhome}">💞 D M</a></li>
-              <li><a th:href="@{/personalhome}">⚙️ Setting</a></li>
+              <li><a th:href="@{/user/{username}/profilesetting(username=${username})}">⚙️ Setting</a></li>
             </ul>
           </li>
 

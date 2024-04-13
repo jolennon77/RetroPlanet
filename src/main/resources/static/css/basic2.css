@@ -210,3 +210,23 @@ body {
 .tab_content{
     height: 398px;
 }
+#errorModal,
+#errorModal1 {
+    margin: 32px;
+    width: 250px;
+    height: 100px;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+#errorModal1{
+   /* display: none;*/
+}
+
+
+
+
+

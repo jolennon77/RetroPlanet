@@ -5,7 +5,7 @@
 
 <div th:fragment="header">
   <div class="logo_wrap" style="max-width: 580px; display: flex; justify-content: flex-start;">
-    <a th:href="@{/}">
+    <a th:href="@{/user/{username}(username=${username})}">
       <div class="logo_header">
       </div>
     </a>
@@ -21,8 +21,15 @@
         <div style="  line-height : 20px;">&nbsp;Style</div>
       </button>
     </div>
-    <div>
-      <button>logout</button>
+    <div sec:authorize="isAuthenticated()">
+      <button id="logout_btn" th:data-url="@{/logout}">logout</button>
+
+      <script>
+        document.getElementById('logout_btn').addEventListener('click', function() {
+          window.location.href = this.getAttribute('data-url');
+        });
+      </script>
+
     </div>
   </div>
 </div>
