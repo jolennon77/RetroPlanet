@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/{username}")
 public class UserController {
 
   private final UserService userService;
   private final UserProfileService userProfileService;
 
 
-  @GetMapping("/{username}")
+  @GetMapping("/home")
   public String userProfile(@PathVariable String username, Model model) {
     // 사용자의 username을 기반으로 해당 사용자 정보를 조회
     SiteUser user = userService.getUser(username);
@@ -36,7 +36,7 @@ public class UserController {
   }
 
 
-  @GetMapping("/{username}/profilesetting")
+  @GetMapping("/profilesetting")
   public String profilesetting(@PathVariable String username, Model model) {
     // 사용자의 username을 기반으로 해당 사용자 정보를 조회
     SiteUser user = userService.getUser(username);
@@ -54,7 +54,7 @@ public class UserController {
   }
 
 
-  @GetMapping("/{username}/mainpagesetting")
+  @GetMapping("/mainpagesetting")
   public String minapagesetting(@PathVariable String username, Model model) {
     // 사용자의 username을 기반으로 해당 사용자 정보를 조회
     SiteUser user = userService.getUser(username);
@@ -72,7 +72,7 @@ public class UserController {
   }
 
 
-  @GetMapping("/{username}/accountsetting")
+  @GetMapping("/accountsetting")
   public String accountsetting(@PathVariable String username, Model model) {
     // 사용자의 username을 기반으로 해당 사용자 정보를 조회
     SiteUser user = userService.getUser(username);
