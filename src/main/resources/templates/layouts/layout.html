@@ -62,27 +62,22 @@
 <script type="text/javascript" th:src="@{/js/script.js}"></script>
 <script type="text/javascript" th:src="@{/js/styleLoader2.js}"></script>
 
-<script>
-  function redirectToPersonalHome() {
-    window.location.href = '/personalhome';
-  }
-</script>
 <script src="/js/styleLoader2.js"></script>
 <script th:inline="javascript">
-  var username = [[${username}]]
-  var link = "/user/" + username;
+  /*var username = [[${username}]]*/
+
 
   document.getElementById("profile_setting").addEventListener("click", function() {
-    window.location.href = link + "/profilesetting";
+    window.location.href = "profilesetting";
   });
 
   document.getElementById("mainpage_setting").addEventListener("click", function() {
-    window.location.href = link + "/mainpagesetting";
+    window.location.href = "mainpagesetting";
   });
 
 
   document.getElementById("account_setting").addEventListener("click", function() {
-    window.location.href = link + "/accountsetting";
+    window.location.href = "accountsetting";
   });
 
 </script>

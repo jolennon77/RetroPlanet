@@ -52,7 +52,7 @@
 
 
           <li>
-            <a th:href="@{/personalhome}">🏠 Home</a>
+            <a th:href="@{/{username}/home(username=${username})}">🏠 Home</a>
             <ul>
               <li><a th:href="@{/photoAlbum}">📸 Photo</a></li>
               <li><a th:href="@{/diary}">📔 Diary</a></li>
