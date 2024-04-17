@@ -2,6 +2,7 @@ package com.retroplanet.controller;
 
 import com.retroplanet.user.UserCreateForm;
 import com.retroplanet.user.UserService;
+import com.retroplanet.userprofile.UserProfileService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.Getter;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class mainController {
   private final UserService userService;
+  private final UserProfileService userProfileService;
 
   @GetMapping("/")
   public String main() {
@@ -35,6 +37,8 @@ public class mainController {
   public String signupPage(UserCreateForm userCreateForm) {
     return "index_layouts/signup";
   }
+
+
   @PostMapping("/signup")
   public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult, HttpServletRequest request, Model model) {
 
@@ -51,6 +55,7 @@ public class mainController {
     try {
 
       userService.create(userCreateForm.getUsername(), userCreateForm.getEmail(), userCreateForm.getPassword1());
+      
     } catch (DataIntegrityViolationException e){
       e.printStackTrace();
       bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
@@ -70,4 +75,9 @@ public class mainController {
   }
 
 
+
+  @GetMapping("/howtoUrl")
+  public String howtoUrl(){
+    return "user/setting/how_to_youtube_url";
+  }
 }

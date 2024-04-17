@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<div th:fragment="header_nav" style="width: 400px;">
+    <div class="window topnavwindow">
+      <div class="title-bar">
+        <div class="title-bar-text">M E N U</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body" style="display: flex; ">
+        <fieldset style="margin-bottom: 0; margin-right: 9px;">
+          <div class="headprofile_Img">
+            <img th:src="${userprofile.getProfileImgPath()}" alt="Profile Image">
+          </div>
+        </fieldset>
+
+
+        <div class="topnav_flex_box">
+          <section class="tabs" style=" margin-bottom: auto;">
+            <menu class="topnav" role="tablist" aria-label="Sample Tabs" sy>
+              <button id="home" role="tab">🏠</button>
+              <button role="tab" aria-controls="tab-B">🚀</button>
+              <button id="photo" role="tab">📸</button>
+              <button role="tab" aria-controls="tab-D">📔</button>
+              <button role="tab" aria-controls="tab-E">💞</button>
+              <button th:if="${user eq logInUser}" id="setting" role="tab">⚙️</button>
+            </menu>
+          </section>
+
+          <div style="display:flex;">
+            <fieldset class="mood_section">
+              <legend>Today's mood</legend>
+              <p style="margin: 0" th:text="${userprofile.getTodayMood()}"></p>
+            </fieldset>    </div>
+
+          <div style="display: flex; align-items: center">
+            <fieldset class="follow_section"  >
+            <legend>follower</legend>
+              <a th:text="${user.getFollowers().size()}"></a>
+            </fieldset>
+            <fieldset class="follow_section"  >
+              <legend>following</legend>
+              <a th:text="${user.getFollowing().size()}"></a>
+            </fieldset>
+            <div th:if="${user.getId() ne logInUserId}" style="margin-left: auto; margin-top: 7px;">
+              <form th:action="@{/follow}" method="post">
+                <button>팔로잉</button>
+                <input type="hidden" name="follower" th:value="${logInUserId}">
+                <input type="hidden" name="followee" th:value="${user.getId()}">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

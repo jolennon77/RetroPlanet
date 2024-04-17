@@ -45,6 +45,7 @@
 // });
 
 // 상단 탭
+/*
 document.querySelectorAll('.header menu[role="tablist"] button').forEach(button => {
   button.addEventListener('click', function() {
     const selectedTab = this.getAttribute('aria-controls');
@@ -66,6 +67,7 @@ document.querySelectorAll('.header menu[role="tablist"] button').forEach(button 
     this.setAttribute('aria-selected', 'true');
   });
 });
+*/
 
 // 하단 탭
 document.querySelectorAll('.center menu[role="tablist"] button').forEach(button => {

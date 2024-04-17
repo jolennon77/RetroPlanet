@@ -1,0 +1,119 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<div layout:fragment="content">
+  <div class="window" style="width: 400px">
+    <div class="title-bar">
+      <div class="title-bar-text">P H O T O</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="content_body">
+      <div class="window-body">
+        <menu role="tablist">
+          <button aria-controls="album" aria-selected="true">Album</button>
+          <div th:if="${user eq logInUser}">
+            <button aria-controls="photoupload">Upload</button>
+          </div>
+        </menu>
+
+
+        <article class="tab_content" role="tabpanel" id="album">
+          <fieldset class="content_fieldset">
+            <legend>album</legend>
+            <div class="grid-container">
+              <div class="photogrid" th:each="feed : ${feedList}">
+<!--                <img th:src="${feed.getPhotoImgPath()}" alt="feedImg" th:attr="data-path=${feed.getPhotoImgPath()}" onclick="openModal(this.getAttribute('data-path'), '${feed.getContent()}')">-->
+                <img th:src="${feed.getPhotoImgPath()}" alt="feedImg"
+                     th:attr="data-path=${feed.getPhotoImgPath()},
+                              data-content=${feed.getContent()},
+                              data-create-date=${#temporals.format(feed.getCreateDate(), 'yyyy-MM-dd HH:mm')},
+                              data-feed-id=${feed.getId()}"
+                     onclick="openModal(this.getAttribute('data-path'),
+                                        this.getAttribute('data-content'),
+                                        this.getAttribute('data-create-date'),
+                                        this.getAttribute('data-feed-id'))">
+              </div>
+            </div>
+            <!--<div class="photogrid" style="background-image: url(/img/needgirl5.jpg);"
+                 onclick="window.open('/photoDetail');"></div>
+            <div class="photogrid" style="background-image: url(/img/needgirl13.jpg);"></div>-->
+          </fieldset>
+        </article>
+
+        <article class="tab_content" role="tabpanel" hidden id="photoupload">
+          <form th:action="@{/{username}/photo/upload(username=${username})}" method="post"
+                enctype="multipart/form-data">
+            <input type="hidden" name="username" th:value="${user.getUsername()}"/>
+            <fieldset>
+              <legend>사진업로드📸</legend>
+              <div class="photopreview">
+                <img id="previewImg" alt="Profile Image">
+              </div>
+            </fieldset>
+            <fieldset style="height: 70px;">
+              <legend>사진설명</legend>
+              <textarea name="content"></textarea>
+              <br>
+            </fieldset>
+            <section class="fileAndSubmit">
+              <input type="file" name="file" id="profileImg" accept="image/*" required><br><br>
+              <button type="submit">등록버튼</button>
+            </section>
+          </form>
+        </article>
+
+
+        <!--모달창-->
+        <!-- 모달창 -->
+
+        <div class="window" id="photomodal" hidden>
+          <div class="title-bar">
+            <div class="title-bar-text">
+              Photo
+            </div>
+
+            <div class="title-bar-controls">
+              <button type="button" aria-label="Minimize" id="minimizeButton"></button>
+              <button type="button" aria-label="Maximize" id="maximizeButton"></button>
+              <button type="button" aria-label="Close" id="closeButton"></button>
+            </div>
+          </div>
+          <div class="window-body" style="height: 88%">
+            <fieldset>
+            <div class="photobox">
+            <img id="feedImage" src="">
+            </div>
+            </fieldset>
+            <fieldset>
+
+              <div style="display: flex; align-items: center;">
+              <div id="regdate"></div>
+              <button style="margin-left: auto; margin-right: 5px;" type="button" id="likeButton">❤️</button>
+              <div>10</div>
+              </div>
+
+              <p id="content"></p>
+            </fieldset>
+            <section class="fileAndSubmit">
+              <div style="margin-right: auto" sec:authorize="isAuthenticated()">
+                <form th:action="@{/{username}/photo/delete(username=${username})}" method="post">
+                  <input type="hidden" name="feedId" value=""/>
+                <button type="submit">삭제</button>
+                </form>
+              </div>
+              <button type="button" id="okButton">OK</button>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

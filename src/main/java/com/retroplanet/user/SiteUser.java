@@ -1,5 +1,6 @@
 package com.retroplanet.user;
 
+import com.retroplanet.feed.Feed;
 import com.retroplanet.userprofile.UserProfile;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -7,8 +8,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.util.List;
+import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,5 +40,16 @@ public class SiteUser {
 
   @OneToOne(mappedBy = "siteUser", cascade = CascadeType.REMOVE)
   private UserProfile userProfile;
+
+  @OneToMany(mappedBy = "siteUser", cascade = CascadeType.REMOVE)
+  private List<Feed> feedList;
+
+
+  @ManyToMany
+  private Set<SiteUser> following;
+
+  @ManyToMany
+  private Set<SiteUser> followers;
+
 
 }

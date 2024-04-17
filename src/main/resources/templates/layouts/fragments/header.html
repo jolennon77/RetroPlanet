@@ -5,10 +5,19 @@
 
 <div th:fragment="header">
   <div class="logo_wrap" style="max-width: 580px; display: flex; justify-content: flex-start;">
-    <a th:href="@{/{username}/home(username=${username})}">
+    <div sec:authorize="isAnonymous()">
+    <a th:href="@{/login}">
       <div class="logo_header">
       </div>
     </a>
+    </div>
+   <div sec:authorize="isAuthenticated()">
+      <a th:href="@{/{logInUser}(logInUser=${logInUser.getUsername()})}">
+        <div class="logo_header">
+        </div>
+      </a>
+    </div>
+
     <div style="margin-left: auto;">
       <button id="styleButton1" style="display: flex;">
         <img src="/img/icoxp.png " style="height: 20px;" alt="">
@@ -23,13 +32,19 @@
     </div>
     <div sec:authorize="isAuthenticated()">
       <button id="logout_btn" th:data-url="@{/logout}">logout</button>
-
       <script>
         document.getElementById('logout_btn').addEventListener('click', function() {
           window.location.href = this.getAttribute('data-url');
         });
       </script>
-
+    </div>
+    <div sec:authorize="isAnonymous()">
+<!--      <button id="login_btn" th:data-url="@{/login}">login</button>-->
+      <script>
+        document.getElementById('login_btn').addEventListener('click', function() {
+          window.location.href = this.getAttribute('data-url');
+        });
+      </script>
     </div>
   </div>
 </div>
