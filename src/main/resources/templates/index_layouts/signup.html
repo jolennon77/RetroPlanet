@@ -1,0 +1,88 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{index_layouts/layout}">
+
+
+<div layout:fragment="content" class="window" style="width: 394px;">
+  <div class="title-bar">
+    <div class="title-bar-text">Sign Up</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <menu role="tablist">
+      <button id="loginBtn">Sign In</button>
+      <button id="signupBtn" aria-selected="true">Sign Up</button>
+      <button id="aboutBtn">About</button>
+    </menu>
+    <article class="tab_content" role="tabpanel">
+      <div>
+        <form th:action="@{signup}" th:object="${userCreateForm}" method="post">
+
+
+
+          <div class="window" style="margin: 32px; width: 250px" id="errorModal1" hidden>
+          <div class="title-bar">
+            <div class="title-bar-text">
+              Error
+            </div>
+
+            <div class="title-bar-controls">
+              <button type="button" aria-label="Minimize" id="minimizeButton" ></button>
+              <button type="button" aria-label="Maximize" id="maximizeButton"></button>
+              <button type="button" aria-label="Close" id="closeButton"></button>
+            </div>
+          </div>
+          <div class="window-body">
+          <div  th:value="${#fields.hasAnyErrors()}" >
+              <div id="serverError1" th:each="err : ${#fields.allErrors()}" th:text="${err}" />
+          </div>
+            <section class="field-row" style="justify-content: flex-end">
+              <button type="button" id="okButton">OK</button>
+            </section>
+          </div>
+          </div>
+
+
+
+
+          <!-- <div th:replace="~{form_errors :: formErrorsFragment}"></div>-->
+          <!--<div role="alert" th:if="${#fields.hasAnyErrors()}">
+            <div th:each="err : ${#fields.allErrors()}" th:text="${err}" />
+          </div>-->
+          <fieldset>
+            <div style="display: flex; justify-content: center;">
+              <img src="/img/RPlogo2.png">
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Sign Up</legend>
+            <div class="field-row-stacked" style="width: 200px">
+              <label for="username">USER ID</label>
+              <input id="username" type="text" th:field="*{username}"/>
+            </div>
+            <div class="field-row-stacked" style="width: 200px">
+              <label for="email">E-MAIL</label>
+              <input id="email" type="text" th:field="*{email}"/>
+            </div>
+            <div class="field-row-stacked" style="width: 200px">
+              <label for="password1">PASSWORD</label>
+              <input id="password1" type="password" th:field="*{password1}"/>
+            </div>
+            <div class="field-row-stacked" style="width: 200px">
+              <label for="password2">PASSWORD CHECK</label>
+              <input id="password2" type="password" th:field="*{password2}"/>
+            </div>
+          </fieldset>
+          <section class="field-row">
+            <button type="submit">Sign Up</button>
+          </section>
+        </form>
+      </div>
+    </article>
+  </div>
+</div>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인 페이지</title>
+  <link id="styleLink" rel="stylesheet" href="https://unpkg.com/xp.css">
+  <link th:href="@{/css/basic2.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<!--본문 영역 start-->
+<div class="main_wrap">
+  <!--헤더영역 start -->
+  <!--헤더영역 end -->
+
+  <!--헤더 네비 start-->
+  <div class="header" id="hidden2">
+  </div>
+  <!--헤더 네비 end-->
+  <!--Center 영역 start-->
+  <div class="center" style="max-width:800px">
+    <!--Left 영역 start-->
+    <!--Left 영역 start-->
+    <div id="hidden" style="max-width: 400px; height: 500px; ">
+      <!--사진공간-->
+      <div class="window">
+        <div class="title-bar">
+          <div class="title-bar-text">Welcome to Retro Planet</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <div>
+            <img src="/img/RPlogo.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Left 영역 end-->
+
+
+    <!--Right 영역 start-->
+    <div style="max-width: 394px; height: 500px;">
+      <th:block layout:fragment="content">
+        <div style="background-color: rgba(255,121,224,0.23); height: 150px;">
+          content 영역
+        </div>
+      </th:block>
+    </div>
+    <!--Right 영역 end-->
+  </div>
+  <!--Center 영역 end-->
+  <!--footer 영역 start-->
+  <div class="info_wrap">
+    <div style="max-width:800px">
+      <div class="window">
+        <div class="title-bar">
+          <div class="title-bar-text">Command Prompt</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+    <pre class="copyright">Microsoft&#10094;R&#10095; Retro Planet
+&#10094;C&#10095; Copyright HYUNJIN CHO
+      <br>C:&#92;WINDOWS&#92;SYSTEM32> Thanks you
+    </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--footer 영역 end-->
+</div>
+
+
+
+
+<script src="/js/script.js"></script>
+<!--<script src="/js/styleLoader.js"></script>-->
+<!--<script src="/js/styleLoader2.js"></script>-->
+<script>
+  document.getElementById("loginBtn").addEventListener("click", function() {
+    window.location.href = "/";
+  });
+
+  document.getElementById("signupBtn").addEventListener("click", function() {
+    window.location.href = "/signup";
+  });
+
+
+  document.getElementById("aboutBtn").addEventListener("click", function() {
+    window.location.href = "/about";
+  });
+</script>
+<script>
+  window.onload = function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('error')) {
+      // 모달 창을 표시하는 코드
+      var errorModal = document.getElementById("errorModal");
+      errorModal.style.display = "block";
+
+      // 모달 창의 'OK' 버튼에 클릭 이벤트 리스너를 추가
+      var buttons = ["minimizeButton", "maximizeButton", "closeButton", "okButton"];
+      buttons.forEach(function(buttonId) {
+        var button = document.getElementById(buttonId);
+        button.addEventListener("click", function() {
+          errorModal.style.display = "none";
+        });
+      });
+    }
+  };
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    var serverError1 = document.getElementById('serverError1').innerText;
+    var errorModal1 = document.getElementById('errorModal1');
+    if (serverError1) {
+      errorModal1.style.display = "block";
+
+      // 모달 창의 'OK' 버튼에 클릭 이벤트 리스너를 추가
+      var buttons = ["minimizeButton", "maximizeButton", "closeButton", "okButton"];
+      buttons.forEach(function(buttonId) {
+        var button = document.getElementById(buttonId);
+        button.addEventListener("click", function() {
+          errorModal1.style.display = "none";
+        });
+      });
+    }
+
+  });
+</script>
+
+</body>
+</html>

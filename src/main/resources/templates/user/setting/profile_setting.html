@@ -1,0 +1,81 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+
+
+<div layout:fragment="content" class="container my-3">
+  <div class="window" style="width: 400px">
+    <div class="title-bar">
+      <div class="title-bar-text">S E T T I N G</div>
+      <div class="title-bar-controls">
+        <button type="button" aria-label="Minimize"></button>
+        <button type="button" aria-label="Maximize"></button>
+        <button type="button" aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="content_body">
+      <div class="window-body">
+        <menu role="tablist">
+          <button id="profile_setting" aria-selected="true">Profile Setting</button>
+          <button id="mainpage_setting">MainPage Setting</button>
+          <button id="account_setting">Account Setting</button>
+        </menu>
+        <article class="tab_content" role="tabpanel">
+          <form th:action="@{/upload/profile}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="username" th:value="${user.getUsername()}"/>
+            <fieldset>
+              <legend>프로필을 세팅해보자!!😎</legend>
+              <div class="leftprofile_Img">
+                <img id="previewImg" th:src="${userprofile.getProfileImgPath()}" alt="Profile Image">
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>오늘 내기분은??!?</legend>
+              <input style="width: 229.91px;" type="text" name="todaymood" th:placeholder="${userprofile.getTodayMood()}" maxlength="14">
+              <br>
+            </fieldset>
+            <fieldset>
+              <legend>유튜브 링크 업데이트</legend>
+              <div class="fileAndSubmit">
+              <input style="flex-grow: 1; margin-right: 5px" type="text" name="youtubeurl" th:placeholder="'https://youtu.be/' + ${userprofile.getYouTubeURL()}">
+              <button type="button" id="howtourl">링크는 어떻게??</button>
+              </div>
+              <br>
+            </fieldset>
+            <section class="fileAndSubmit">
+              <input type="file" name="file" id="profileImg" accept="image/*"><br><br>
+              <button type="submit">수정버튼</button>
+            </section>
+          </form>
+        </article>
+
+
+
+        <!--모달창-->
+        <div class="window" style="height: 550px;" id="howtourlmodal" hidden>
+          <div class="title-bar">
+            <div class="title-bar-text">
+              Error
+            </div>
+
+            <div class="title-bar-controls">
+              <button type="button" aria-label="Minimize" id="minimizeButton" ></button>
+              <button type="button" aria-label="Maximize" id="maximizeButton"></button>
+              <button type="button" aria-label="Close" id="closeButton"></button>
+            </div>
+          </div>
+          <div class="window-body" style="height: 88%">
+            <img src="/img/howtoyoutubeurl.png">
+            <section class="field-row" style="justify-content: flex-end">
+              <button type="button" id="okButton">OK</button>
+            </section>
+          </div>
+        </div>
+        <!--모달창 끝-->
+      </div>
+    </div>
+  </div>
+</div>
+
+</html>

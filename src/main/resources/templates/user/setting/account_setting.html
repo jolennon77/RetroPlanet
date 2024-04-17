@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<div layout:fragment="content">
+    <div class="window" style="width: 400px">
+      <div class="title-bar">
+        <div class="title-bar-text">S E T T I N G</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="content_body">
+        <div class="window-body">
+          <menu role="tablist">
+            <button id="profile_setting">Profile Setting</button>
+            <button id="mainpage_setting">MainPage Setting</button>
+            <button id="account_setting" aria-selected="true">Account Setting</button>
+          </menu>
+          <article class="tab_content" role="tabpanel">
+            <p>프로필을 세팅하자</p>
+            <fieldset>
+              <legend>프로필 사진업로드</legend>
+              <div class="">여기에 사진 업로드와 미리보기</div>
+            </fieldset>
+            <section class="field-row">
+              <button>업로드 버튼</button>
+            </section>
+            <br><br><br>
+            <fieldset>
+              <legend>오늘의 기분 사진업로드</legend>
+              <div class="">여기에 기분입력 최대 7자?</div>
+            </fieldset>
+            <section class="field-row">
+              <button>수정 버튼</button>
+            </section>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

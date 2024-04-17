@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<div layout:fragment="content" class="container my-3">
+  <div class="window" style="width: 400px">
+    <div class="title-bar">
+      <div class="title-bar-text">S E T T I N G</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="content_body">
+      <div class="window-body">
+        <menu role="tablist">
+          <button id="profile_setting">Profile Setting</button>
+          <button id="mainpage_setting" aria-selected="true">MainPage Setting</button>
+          <button id="account_setting">Account Setting</button>
+        </menu>
+        <article class="tab_content" role="tabpanel">
+          <form th:action="@{/upload/mainpage}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="username" th:value="${user.getUsername()}"/>
+
+            <fieldset class="top_fieldset">
+              <legend>대문사진을 꾸며보자!!🚪</legend>
+              <div class="home_profile">
+                <img id="previewImg" th:src="${userprofile.getMainPageImgPath()}" alt="Profile Image">
+              </div>
+            </fieldset>
+            <fieldset class="bottom_fieldset">
+              <legend>Introduce</legend>
+              <textarea name="introduction" th:text="${userprofile.getIntroduction()}"></textarea>
+            </fieldset>
+            <section class="fileAndSubmit">
+              <input type="file" name="file" id="profileImg" accept="image/*"><br><br>
+              <button type="submit">수정버튼</button>
+            </section>
+          </form>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+</html>

@@ -1,0 +1,27 @@
+
+<div th:fragment="formErrorsFragment" class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
+  <div th:each="err : ${#fields.allErrors()}" th:text="${err}" />
+</div>
+
+
+<!--
+
+<div th:fragment="formErrorsFragment" class="window" style="margin: 32px; width: 250px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;" id="errorModal" th:if="${#fields.hasAnyErrors()}" hidden>
+  <div class="title-bar">
+    <div class="title-bar-text">
+      Error
+    </div>
+
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" id="minimizeButton"></button>
+      <button aria-label="Maximize" id="maximizeButton"></button>
+      <button aria-label="Close" id="closeButton"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <p id="errorMessage" th:each="err : ${#fields.allErrors()}" th:text="${err}"></p>
+    <section class="field-row" style="justify-content: flex-end">
+      <button id="okButton">OK</button>
+    </section>
+  </div>
+</div>-->
