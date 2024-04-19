@@ -54,4 +54,10 @@ class UserServiceTest {
 
     }
   }
+
+  @Test
+  @Transactional
+  void 유저삭제테스트(){
+    this.userRepository.deleteById(16L);
+  }
 }

@@ -17,9 +17,9 @@
     <div class="content_body">
       <div class="window-body">
         <menu role="tablist">
-          <button id="profile_setting" aria-selected="true">Profile Setting</button>
-          <button id="mainpage_setting">MainPage Setting</button>
-          <button id="account_setting">Account Setting</button>
+          <button type="button" id="profile_setting" aria-selected="true">Profile Setting</button>
+          <button type="button" id="mainpage_setting">MainPage Setting</button>
+          <button type="button" id="account_setting">Account Setting</button>
         </menu>
         <article class="tab_content" role="tabpanel">
           <form th:action="@{/upload/profile}" method="post" enctype="multipart/form-data">
@@ -78,4 +78,13 @@
   </div>
 </div>
 
+
+
+<th:block layout:fragment="script">
+  <script th:inline="javascript">
+    document.getElementById("profile_setting").addEventListener("click", redirectToUserPage);
+    document.getElementById("mainpage_setting").addEventListener("click", redirectToUserPage);
+    document.getElementById("account_setting").addEventListener("click", redirectToUserPage);
+  </script>
+</th:block>
 </html>

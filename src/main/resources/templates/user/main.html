@@ -1,61 +1,57 @@
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout}">
 
 <div layout:fragment="content" class="container my-3">
-    <div class="window" style="width: 400px">
-      <div class="title-bar">
-        <div class="title-bar-text">H O M E</div>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
+  <div class="window" style="width: 400px">
+    <div class="title-bar">
+      <div class="title-bar-text">H O M E</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button aria-label="Close"></button>
       </div>
-      <div class="content_body">
-        <div class="window-body">
-          <menu role="tablist">
-            <button aria-controls="profile" aria-selected="true">Main</button>
-            <button aria-controls="youtube">YouTube</button>
-          </menu>
-          <article class="tab_content" role="tabpanel" id="profile">
-            <fieldset class="top_fieldset" >
-              <legend>Main Photo</legend>
-              <div class="home_profile">
-                <img id="previewImg" th:src="${userprofile.getMainPageImgPath()}" alt="Profile Image">
-              </div>
-            </fieldset>
-            <fieldset class="bottom_fieldset">
-              <legend>Introduce</legend>
-              <textarea th:text="${userprofile.getIntroduction()}" readonly style="background-color: white"></textarea>
-            </fieldset>
-              <!-- 사용자 아이디와 세션에서 가져온 아이디가 같지 않을 경우에만 폼 요소를 렌더링 -->
-
-
-
-            <div th:if="${user ne logInUser}">
-            <form th:action="@{/{username}/follow}" method="post">
-              <button>팔로잉</button>
-              <input type="hidden" name="follower" th:value="${logInUser.getId()}">
-              <input type="hidden" name="followee" th:value="${user.getId()}">
-              </form>
+    </div>
+    <div class="content_body">
+      <div class="window-body">
+        <menu role="tablist">
+          <button aria-controls="profile" aria-selected="true">Main</button>
+          <button aria-controls="youtube">YouTube</button>
+        </menu>
+        <article class="tab_content" role="tabpanel" id="profile">
+          <fieldset class="top_fieldset">
+            <legend>Main Photo</legend>
+            <div class="home_profile">
+              <img id="previewImg" th:src="${userprofile.getMainPageImgPath()}" alt="Profile Image">
             </div>
-
-
-          </article>
+          </fieldset>
+          <fieldset class="bottom_fieldset">
+            <legend>Introduce</legend>
+            <textarea th:text="${userprofile.getIntroduction()}" readonly
+                      style="background-color: white"></textarea>
+          </fieldset>
+          <!-- 사용자 아이디와 세션에서 가져온 아이디가 같지 않을 경우에만 폼 요소를 렌더링 -->
+          <div th:if="${user ne logInUser}">
+            <form th:action="@{/{username}/follow(username=${username})}" method="post">
+              <button type="submit">팔로잉</button>
+              <input th:if="${logInUser != null}" type="hidden" name="follower" th:value="${logInUser.getId()}" >
+              <input type="hidden" name="followee" th:value="${user.getId()}">
+            </form>
+          </div>
+        </article>
           <article class="tab_content" role="tabpanel" hidden id="youtube">
             <fieldset style="height: 215px;">
-            <legend>Introduce</legend>
-            <iframe width="100%" height="200"
-                    th:src="${encodedYoutubeURL}"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <legend>Introduce</legend>
+              <iframe width="100%" height="200"
+                      th:src="${encodedYoutubeURL}"
+                      title="YouTube video player" frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </fieldset>
           </article>
-        </div>
       </div>
     </div>
   </div>
+</div>
 </html>
 

@@ -15,18 +15,18 @@
     <div class="content_body">
       <div class="window-body">
         <menu role="tablist">
-          <button aria-controls="follower" >Follower</button>
-          <button aria-controls="following" aria-selected="true">Following</button>
+          <button type="button" id="followertab" aria-selected="true">Follower</button>
+          <button type="button" id="followingtab">Following</button>
         </menu>
 
 
         <article class="tab_content" role="tabpanel" id="follower">
           <fieldset class="content_fieldset">
-            <legend>followee</legend>
+            <legend>Follower</legend>
             <div th:each="followers : ${followers}">
               <div class="window follow_window" >
                 <div class="title-bar">
-                  <div class="title-bar-text">Followee</div>
+                  <div class="title-bar-text">Follower</div>
                   <div class="title-bar-controls">
                     <button aria-label="Minimize"></button>
                     <button aria-label="Maximize"></button>
@@ -49,15 +49,11 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </fieldset>
         </article>
-
-
       </div>
     </div>
-
   </div>
 </div>
 

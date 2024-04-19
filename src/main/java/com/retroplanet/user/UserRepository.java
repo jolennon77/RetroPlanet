@@ -8,7 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 public interface UserRepository extends JpaRepository<SiteUser, Long> {
   Optional<SiteUser> findByUsername(String username);
 
-  SiteUser findIdByUsername(String username);
+  SiteUser findByEmail(String username);
+
 
   @Query("SELECT u.followers FROM SiteUser u WHERE u.username = :username")
   Set<SiteUser> findFollowersByUsername(String username);

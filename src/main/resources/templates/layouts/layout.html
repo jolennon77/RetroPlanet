@@ -7,6 +7,7 @@
   <!--css,JS 추가영역-->
   <link id="styleLink" rel="stylesheet" href="https://unpkg.com/xp.css">
   <link th:href="@{/css/basic2.css}" rel="stylesheet"/>
+  <th:block layout:fragment="css">
 </head>
 <body>
 
@@ -20,7 +21,7 @@
 
   <!--헤더 네비 start-->
   <div class="header" id="hidden2">
-  <div th:replace="~{layouts/fragments/header_nav::header_nav}"></div>
+    <div th:replace="~{layouts/fragments/header_nav::header_nav}"></div>
   </div>
   <!--헤더 네비 end-->
 
@@ -29,17 +30,17 @@
   <div class="center" style="max-width:800px">
     <!--Left 영역 start-->
     <div id="hidden" style="max-width: 400px; height: 500px; ">
-    <div th:replace="~{layouts/fragments/left_nav::left_nav}"></div>
+      <div th:replace="~{layouts/fragments/left_nav::left_nav}"></div>
     </div>
-      <!--Left 영역 end-->
+    <!--Left 영역 end-->
 
     <!--Right(content) 영역 start-->
     <div style="max-width: 400px; ">
-    <th:block layout:fragment="content">
-      <div style="background-color: rgba(255,121,224,0.23); height: 150px;">
-        content 영역
-      </div>
-    </th:block>
+      <th:block layout:fragment="content">
+        <div style="background-color: rgba(255,121,224,0.23); height: 150px;">
+          content 영역
+        </div>
+      </th:block>
     </div>
     <!--Right(content) 영역 end-->
   </div>
@@ -58,43 +59,43 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-
 <script type="text/javascript" th:src="@{/js/script.js}"></script>
 <script type="text/javascript" th:src="@{/js/styleLoader2.js}"></script>
-
-
 <script type="text/javascript" th:src="@{/js/previewImg.js}"></script>
 
-<script src="/js/styleLoader2.js"></script>
+
+
+
 
 <script th:inline="javascript">
-  document.getElementById("home").addEventListener("click", function() {
+  document.getElementById("home").addEventListener("click", function () {
     redirectToUserPage();
   });
-
   document.getElementById("photo").addEventListener("click", redirectToUserPage);
+  document.getElementById("followertab").addEventListener("click", redirectToUserPage);
+  document.getElementById("followingtab").addEventListener("click", redirectToUserPage);
   document.getElementById("setting").addEventListener("click", redirectToUserPage);
-  document.getElementById("profile_setting").addEventListener("click", redirectToUserPage);
-  document.getElementById("mainpage_setting").addEventListener("click", redirectToUserPage);
-  document.getElementById("account_setting").addEventListener("click", redirectToUserPage);
-
   function redirectToUserPage() {
-    // 현재 URL에서 유저 아이디 추출
+// 현재 URL에서 유저 아이디 추출
     var currentUrl = window.location.href;
     var userId = currentUrl.split('/')[3]; // 예시: http://localhost:8080/유저아이디/이하주소
 
-    // 새로운 URL 생성
+// 새로운 URL 생성
     var newUrl = "http://localhost:8080/" + userId;
 
     // 프로필 설정 페이지로 이동
     if (this.id === "photo") {
       newUrl += "/photo";
-    }else if (this.id === "profile_setting" || this.id === "setting") {
+    } else if (this.id === "profile_setting" || this.id === "setting") {
       newUrl += "/profilesetting";
-    } else if(this.id === "mainpage_setting") {
+    } else if (this.id === "mainpage_setting") {
       newUrl += "/mainpagesetting";
-    } else if(this.id === "account_setting") {
+    } else if (this.id === "account_setting") {
       newUrl += "/accountsetting";
+    } else if (this.id === "followertab") {
+      newUrl += "/follower";
+    } else if (this.id === "followingtab") {
+      newUrl += "/following";
     }
 
     // 새 URL로 이동
@@ -103,7 +104,7 @@
 
 </script>
 <script>
-  document.getElementById("howtourl").addEventListener("click", function() {
+  document.getElementById("howtourl").addEventListener("click", function () {
     // 모달 창을 가져옴
     var modal = document.getElementById("howtourlmodal");
     // 모달 창을 표시
@@ -182,13 +183,12 @@
   closeButton.addEventListener("click", hideModal);
   okButton.addEventListener("click", hideModal);
 
-
-/*  document.getElementById('closeButton').addEventListener('click', function() {
-    var modal = document.getElementById('photomodal');
-    // 모달 닫기
-    modal.setAttribute('hidden', true);
-    // document.getElementById("overlay").style.display = "none";
-  });*/
+  /*  document.getElementById('closeButton').addEventListener('click', function() {
+      var modal = document.getElementById('photomodal');
+      // 모달 닫기
+      modal.setAttribute('hidden', true);
+      // document.getElementById("overlay").style.display = "none";
+    });*/
 </script>
 
 
@@ -197,5 +197,8 @@
     window.location.href = 'http://localhost:8080/' + username;
   }
 </script>
+
+
+<th:block layout:fragment="script"></th:block>
 </html>
 

@@ -139,6 +139,22 @@
 
   });
 </script>
+<script>
+  document.getElementById('naver').addEventListener('click', function() {
+    redirectToOAuth('naver');
+  });
 
+  document.getElementById('daum').addEventListener('click', function() {
+    redirectToOAuth('daum');
+  });
+
+  function redirectToOAuth(id) {
+    // ID 값에 따라 URL 생성
+    var url = 'http://localhost:8080/api/v1/auth/oauth2/' + id;
+
+    // 페이지 이동
+    window.location.href = url;
+  }
+</script>
 </body>
 </html>

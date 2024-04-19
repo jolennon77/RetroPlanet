@@ -39,7 +39,7 @@
       </script>
     </div>
     <div sec:authorize="isAnonymous()">
-<!--      <button id="login_btn" th:data-url="@{/login}">login</button>-->
+      <button id="login_btn" th:data-url="@{/login}">login</button>
       <script>
         document.getElementById('login_btn').addEventListener('click', function() {
           window.location.href = this.getAttribute('data-url');

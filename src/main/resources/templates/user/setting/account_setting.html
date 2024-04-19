@@ -42,4 +42,11 @@
       </div>
     </div>
   </div>
+<th:block layout:fragment="script">
+  <script th:inline="javascript">
+    document.getElementById("profile_setting").addEventListener("click", redirectToUserPage);
+    document.getElementById("mainpage_setting").addEventListener("click", redirectToUserPage);
+    document.getElementById("account_setting").addEventListener("click", redirectToUserPage);
+  </script>
+</th:block>
 </html>

@@ -15,51 +15,51 @@
     <div class="content_body">
       <div class="window-body">
         <menu role="tablist">
-          <button aria-controls="follower" >Follower</button>
-            <button aria-controls="following" aria-selected="true">Following</button>
+          <button type="button" id="followertab">Follower</button>
+
+          <button type="button" id="followingtab" aria-selected="true">Following</button>
         </menu>
 
 
         <article class="tab_content" role="tabpanel" id="follower">
           <fieldset class="content_fieldset">
-            <legend>followee</legend>
-              <div th:each="following : ${following}">
-                <div class="window follow_window" >
-                  <div class="title-bar">
-                    <div class="title-bar-text">Followee</div>
-                    <div class="title-bar-controls">
-                      <button aria-label="Minimize"></button>
-                      <button aria-label="Maximize"></button>
-                      <button aria-label="Close"></button>
-                    </div>
+            <legend>following</legend>
+            <div th:each="following : ${following}">
+              <div class="window follow_window">
+                <div class="title-bar">
+                  <div class="title-bar-text">following</div>
+                  <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
                   </div>
-                  <div class="window-body" style="display:flex; align-items: center">
-                    <div class="follow_profile" style="width: 50px; height: 50px;">
-                      <img th:src="${following.getUserProfile().getProfileImgPath()}" alt="Profile Image">
-                    </div>
-                    <div>
+                </div>
+                <div class="window-body" style="display:flex; align-items: center">
+                  <div class="follow_profile" style="width: 50px; height: 50px;">
+                    <img th:src="${following.getUserProfile().getProfileImgPath()}"
+                         alt="Profile Image">
+                  </div>
+                  <div>
                     <p th:text="'이름 : ' + ${following.getUsername()}"></p>
                     <p th:text="'오늘의기분 : ' + ${following.getUserProfile().getTodayMood()}"></p>
-                    </div>
-                    <div style="margin-left: auto;">
-                      <button type="button"
-                              th:username="${following.getUsername()}"
-                              th:onclick="redirectToFollow(this.getAttribute('username'))"
-                              >놀러가기</button>
-                    </div>
                   </div>
+                  <div style="margin-left: auto;">
+                    <button type="button"
+                            th:username="${following.getUsername()}"
+                            th:onclick="redirectToFollow(this.getAttribute('username'))"
+                    >놀러가기
+                    </button>
                   </div>
-
+                </div>
+              </div>
             </div>
           </fieldset>
         </article>
-
-
       </div>
     </div>
-
   </div>
 </div>
+
 
 
 

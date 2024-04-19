@@ -41,6 +41,9 @@ public class SiteUser {
   @OneToOne(mappedBy = "siteUser", cascade = CascadeType.REMOVE)
   private UserProfile userProfile;
 
+
+
+
   @OneToMany(mappedBy = "siteUser", cascade = CascadeType.REMOVE)
   private List<Feed> feedList;
 
@@ -50,6 +53,18 @@ public class SiteUser {
 
   @ManyToMany
   private Set<SiteUser> followers;
+
+  public SiteUser() {
+
+  }
+
+
+  public SiteUser(String username, String email) {
+    this.username = username;
+    this.email = email;
+    this.password = "passw0rd";
+
+  }
 
 
 }

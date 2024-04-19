@@ -22,7 +22,7 @@
           <section class="tabs" style=" margin-bottom: auto;">
             <menu class="topnav" role="tablist" aria-label="Sample Tabs" sy>
               <button id="home" role="tab">🏠</button>
-              <button role="tab" aria-controls="tab-B">🚀</button>
+              <button id="feed" role="tab" aria-controls="tab-B">🚀</button>
               <button id="photo" role="tab">📸</button>
               <button role="tab" aria-controls="tab-D">📔</button>
               <button role="tab" aria-controls="tab-E">💞</button>
@@ -39,16 +39,22 @@
           <div style="display: flex; align-items: center">
             <fieldset class="follow_section"  >
             <legend>follower</legend>
-              <a th:text="${user.getFollowers().size()}"></a>
+              <a th:href="@{/{username}/follower(username=${username})}"
+                 th:text="${user.getFollowers().size()}"></a>
             </fieldset>
+
             <fieldset class="follow_section"  >
               <legend>following</legend>
-              <a th:text="${user.getFollowing().size()}"></a>
+              <a th:href="@{/{username}/following(username=${username})}"
+                 th:text="${user.getFollowing().size()}"></a>
             </fieldset>
-            <div th:if="${user.getId() ne logInUserId}" style="margin-left: auto; margin-top: 7px;">
-              <form th:action="@{/follow}" method="post">
-                <button>팔로잉</button>
-                <input type="hidden" name="follower" th:value="${logInUserId}">
+
+            <div th:if="${user ne logInUser}" style="margin-left: auto; margin-top: 7px;">
+              <form th:action="@{/{username}/follow(username=${username})}" method="post">
+                <button type="submit">팔로잉</button>
+                <!--로그인유저-->
+                <input th:if="${logInUser != null}" type="hidden" name="follower" th:value="${logInUser.getId()}" >
+                <!--홈페이지유저-->
                 <input type="hidden" name="followee" th:value="${user.getId()}">
               </form>
             </div>
